@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sneaker_practice/constants.dart';
 
 import 'home_page.dart';
 
@@ -9,7 +8,6 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBackGroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -22,36 +20,20 @@ class IntroPage extends StatelessWidget {
                   width: 250,
                 ),
               ),
-              Text(
-                'Just Do It',
-                style: TextStyle(
-                  color: Colors.grey[700],
-                ),
-              ),
+              const Text('Just Do It'),
               const SizedBox(height: 150),
-              const Text(
-                'Home of premium quality shoes',
-                style: TextStyle(color: Colors.grey),
-              ),
-              const SizedBox(height: 50),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const HomePage();
-                      },
-                    ),
-                  );
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const HomePage();
+                  }));
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(12)),
                   child: const Padding(
-                    padding: EdgeInsets.all(20.0),
+                    padding: EdgeInsets.all(20),
                     child: Center(
                       child: Text(
                         'Shop Now',

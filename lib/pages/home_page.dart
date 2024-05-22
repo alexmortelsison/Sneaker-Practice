@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
     const ShopPage(),
     const CartPage(),
   ];
-
   void navigateBottomBar(int index) {
     setState(() {
       _selectedIndex = index;
@@ -29,8 +28,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackGroundColor,
       body: _pages[_selectedIndex],
-      bottomNavigationBar: MyButtonNavBar(onTabChange: navigateBottomBar),
+      bottomNavigationBar: MyButtonNavBar(
+        onTabChange: navigateBottomBar,
+      ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: Builder(builder: (context) {
+          return IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Icon(Icons.menu),
+          );
+        }),
+      ),
       drawer: Drawer(
         backgroundColor: Colors.grey[900],
         child: Column(
@@ -41,23 +54,20 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   DrawerHeader(
-                    child: Image.asset('images/logo.png', color: Colors.white),
-                  ),
-                  const ListTile(
-                    leading: Icon(
-                      Icons.home,
+                    child: Image.asset(
+                      'images/logo.png',
                       color: Colors.white,
                     ),
+                  ),
+                  const ListTile(
+                    leading: Icon(Icons.home, color: Colors.white),
                     title: Text(
                       'Home',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                   const ListTile(
-                    leading: Icon(
-                      Icons.info,
-                      color: Colors.white,
-                    ),
+                    leading: Icon(Icons.info, color: Colors.white),
                     title: Text(
                       'About',
                       style: TextStyle(color: Colors.white),
@@ -69,10 +79,7 @@ class _HomePageState extends State<HomePage> {
             const Padding(
               padding: EdgeInsets.only(left: 25, bottom: 25),
               child: ListTile(
-                leading: Icon(
-                  Icons.logout,
-                  color: Colors.white,
-                ),
+                leading: Icon(Icons.logout, color: Colors.white),
                 title: Text(
                   'Log Out',
                   style: TextStyle(color: Colors.white),
@@ -80,20 +87,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ],
-        ),
-      ),
-      backgroundColor: kBackGroundColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          },
         ),
       ),
     );

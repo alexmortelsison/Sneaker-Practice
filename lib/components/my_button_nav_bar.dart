@@ -12,17 +12,13 @@ class MyButtonNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: GNav(
-        onTabChange: onTabChange,
         tabBorderRadius: 12,
         mainAxisAlignment: MainAxisAlignment.center,
         tabBackgroundColor: Colors.white,
+        onTabChange: onTabChange,
         tabs: const [
-          GButton(
-            icon: Icons.home,
-          ),
-          GButton(
-            icon: Icons.shopping_bag_rounded,
-          ),
+          GButton(icon: Icons.home),
+          GButton(icon: Icons.shopping_bag_rounded)
         ],
       ),
     );
