@@ -24,7 +24,9 @@ class IntroPage extends StatelessWidget {
               ),
               Text(
                 'Just Do It',
-                style: TextStyle(color: Colors.grey[600]),
+                style: TextStyle(
+                  color: Colors.grey[700],
+                ),
               ),
               const SizedBox(height: 80),
               const Text(
@@ -34,14 +36,20 @@ class IntroPage extends StatelessWidget {
               const SizedBox(height: 80),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const HomePage();
-                  }));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const HomePage();
+                      },
+                    ),
+                  );
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(12)),
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   child: const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Center(
