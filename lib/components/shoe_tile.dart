@@ -50,7 +50,7 @@ class ShoeTile extends StatelessWidget {
                             Icons.add,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: onPressed,
                         ),
                       ),
                     ],
