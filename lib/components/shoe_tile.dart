@@ -4,9 +4,11 @@ import '../models/shoe.dart';
 
 class ShoeTile extends StatelessWidget {
   final Shoe shoe;
+  final void Function()? onPressed;
   const ShoeTile({
     super.key,
     required this.shoe,
+    required this.onPressed,
   });
 
   @override
