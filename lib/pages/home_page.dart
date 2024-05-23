@@ -1,12 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:sneaker_practice/components/my_button_nav_bar.dart';
 import 'package:sneaker_practice/constants.dart';
 
-class HomePage extends StatelessWidget {
+import 'cart_page.dart';
+import 'shop_page.dart';
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int selectedIndex = 0;
+
+  List<Widget> pages = [
+    const ShopPage(),
+    const CartPage(),
+  ];
+  @override
   Widget build(BuildContext context) {
+    void navigateBottomBar(int index) {
+      setState(() {
+        selectedIndex = index;
+      });
+    }
+
     return Scaffold(
+      body: pages[selectedIndex],
+      bottomNavigationBar: MyButtonNavBar(
+        onTabChange: (index) {
+          navigateBottomBar(index);
+        },
+      ),
       drawer: Drawer(
         backgroundColor: Colors.grey[900],
         child: Column(
